@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartFaceModelStoreContainer" CdmEntityContainer="SmartFaceEntities">
+    <EntitySetMapping Name="GuideBooks">
+      <EntityTypeMapping TypeName="SmartFaceModel.GuideBook">
+        <MappingFragment StoreEntitySet="GuideBook">
+          <ScalarProperty Name="RSN" ColumnName="RSN" />
+          <ScalarProperty Name="GuideBook1" ColumnName="GuideBook" />
+          <ScalarProperty Name="GuidePostId" ColumnName="GuidePostId" />
+          <ScalarProperty Name="Language_Code" ColumnName="Language_Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="SignalStrength" ColumnName="SignalStrength" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+          <ScalarProperty Name="C_Date" ColumnName="C_Date" />
+          <ScalarProperty Name="M_Id" ColumnName="M_Id" />
+          <ScalarProperty Name="M_Date" ColumnName="M_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="SmartFaceModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="RSN" ColumnName="RSN" />
+          <ScalarProperty Name="Language_Code" ColumnName="Language_Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

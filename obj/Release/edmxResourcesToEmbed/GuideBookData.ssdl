@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartFaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GuideBook">
+    <Key>
+      <PropertyRef Name="RSN" />
+    </Key>
+    <Property Name="RSN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuideBook" Type="varchar" MaxLength="20" />
+    <Property Name="GuidePostId" Type="varchar" MaxLength="8" />
+    <Property Name="Language_Code" Type="varchar" MaxLength="2" />
+    <Property Name="Title" Type="varchar" MaxLength="40" />
+    <Property Name="Content" Type="varchar" MaxLength="2400" />
+    <Property Name="SignalStrength" Type="int" />
+    <Property Name="Meta" Type="varchar" MaxLength="255" />
+    <Property Name="Enabled" Type="bit" />
+    <Property Name="C_Id" Type="varchar" MaxLength="12" />
+    <Property Name="C_Date" Type="datetime" />
+    <Property Name="M_Id" Type="varchar" MaxLength="12" />
+    <Property Name="M_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="RSN" />
+    </Key>
+    <Property Name="RSN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language_Code" Type="char" MaxLength="2" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="SmartFaceModelStoreContainer">
+    <EntitySet Name="GuideBook" EntityType="Self.GuideBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

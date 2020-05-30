@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SmartFaceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GuideBook">
+          <Key>
+            <PropertyRef Name="RSN" />
+          </Key>
+          <Property Name="RSN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuideBook" Type="varchar" MaxLength="20" />
+          <Property Name="GuidePostId" Type="varchar" MaxLength="8" />
+          <Property Name="Language_Code" Type="varchar" MaxLength="2" />
+          <Property Name="Title" Type="varchar" MaxLength="40" />
+          <Property Name="Content" Type="varchar" MaxLength="2400" />
+          <Property Name="SignalStrength" Type="int" />
+          <Property Name="Meta" Type="varchar" MaxLength="255" />
+          <Property Name="Enabled" Type="bit" />
+          <Property Name="C_Id" Type="varchar" MaxLength="12" />
+          <Property Name="C_Date" Type="datetime" />
+          <Property Name="M_Id" Type="varchar" MaxLength="12" />
+          <Property Name="M_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="RSN" />
+          </Key>
+          <Property Name="RSN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Language_Code" Type="char" MaxLength="2" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SmartFaceModelStoreContainer">
+          <EntitySet Name="GuideBook" EntityType="Self.GuideBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartFaceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GuideBook">
+          <Key>
+            <PropertyRef Name="RSN" />
+          </Key>
+          <Property Name="RSN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuideBook1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GuidePostId" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Language_Code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="2400" FixedLength="false" Unicode="false" />
+          <Property Name="SignalStrength" Type="Int32" />
+          <Property Name="Meta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Enabled" Type="Boolean" />
+          <Property Name="C_Id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="C_Date" Type="DateTime" Precision="3" />
+          <Property Name="M_Id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="M_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="RSN" />
+          </Key>
+          <Property Name="RSN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Language_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SmartFaceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GuideBooks" EntityType="Self.GuideBook" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartFaceModelStoreContainer" CdmEntityContainer="SmartFaceEntities">
+          <EntitySetMapping Name="GuideBooks">
+            <EntityTypeMapping TypeName="SmartFaceModel.GuideBook">
+              <MappingFragment StoreEntitySet="GuideBook">
+                <ScalarProperty Name="RSN" ColumnName="RSN" />
+                <ScalarProperty Name="GuideBook1" ColumnName="GuideBook" />
+                <ScalarProperty Name="GuidePostId" ColumnName="GuidePostId" />
+                <ScalarProperty Name="Language_Code" ColumnName="Language_Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SignalStrength" ColumnName="SignalStrength" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="C_Id" ColumnName="C_Id" />
+                <ScalarProperty Name="C_Date" ColumnName="C_Date" />
+                <ScalarProperty Name="M_Id" ColumnName="M_Id" />
+                <ScalarProperty Name="M_Date" ColumnName="M_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="SmartFaceModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="RSN" ColumnName="RSN" />
+                <ScalarProperty Name="Language_Code" ColumnName="Language_Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
